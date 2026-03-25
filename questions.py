@@ -1,15 +1,21 @@
 import random
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-word = random.choice(words)
+# Se agregan categorias para seleccionar
+categories = {
+    "programacion": ["python", "variable", "funcion", "bucle"],
+    "datos": ["lista", "entero", "cadena"],
+    "general": ["programa"]
+}
+print("Categorías disponibles:")
+for cat in categories:
+    print("-", cat)
+
+category = input("Seleccione una categoría: ")
+
+while category not in categories:
+    category = input("Categoría inválida. Seleccione otra: ")
+
+word = random.choice(categories[category])
+   
 guessed = []
 attempts = 6
 # Se agrega marcador de puntaje!
